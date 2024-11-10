@@ -23,8 +23,8 @@ public class User implements Serializable  {
  @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
-    private String nombre;
+     @Column(name="nombre")
+    private String name;
     private String password;
     private String role;
 
@@ -36,13 +36,15 @@ public class User implements Serializable  {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
+
+    
 
     public String getPassword() {
         return password;
