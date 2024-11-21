@@ -4,7 +4,6 @@
  */
 package com.example.demo.models.services;
 
-import com.example.demo.models.entity.Cliente;
 import com.example.demo.models.entity.User;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
 public interface IUserService {
        public List<User> findAll();
     public User findById(long id);
-    public User save(Cliente cliente);
+    public User save(User user);
     public void delete(long id);
       public User findByName(String name);
 }

@@ -9,6 +9,7 @@ import com.example.demo.dto.AuthResponseDto;
 import com.example.demo.models.entity.User;
 import com.example.demo.models.services.IUserService;
 import com.example.demo.models.services.JwtUtilService;
+import java.util.List;
 
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +42,10 @@ public class AuthController {
     private IUserService userRepository;
     @Autowired
     private JwtUtilService jwtUtilService;
+    
+    
+     @Autowired
+    private IUserService userservice;
 
     @PostMapping("/login")
     public ResponseEntity<?> auth(@RequestBody AuthRequestDto authRequestDto) {
@@ -68,7 +74,6 @@ public class AuthController {
         }
 
     }
-    
     @PostMapping("/refresh")
     public ResponseEntity<?> auth(@RequestBody Map<String, String>  request) {
         String refreshToken = request.get("refreshToken");
@@ -96,5 +101,11 @@ public class AuthController {
         }
 
     }
+    
+    
+    
+    
+    
+    
 
 }

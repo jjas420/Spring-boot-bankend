@@ -19,40 +19,37 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class UserServiceIMplement implements IUserService {
-     @Autowired
-    private UserDao clienteDao;
+
+    @Autowired
+    private UserDao userDao;
 
     @Override
+    @Transactional(readOnly = true)
     public List<User> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return (List<User>) userDao.findAll();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public User findById(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return userDao.findById(id).orElse(null);
     }
-
     @Override
-    public User save(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    @Transactional
+    public User save(User user) {
+        return userDao.save(user);
+        
     }
-
+    
     @Override
     public void delete(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        userDao.deleteById(id);
     }
 
     @Override
     @Transactional(readOnly = true)
     public User findByName(String name) {
-                return clienteDao.findByNombre(name);
+        return userDao.findByNombre(name);
 
-        
     }
-
-
-
-    
-    
-    
 }
