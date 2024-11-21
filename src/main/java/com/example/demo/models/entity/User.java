@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author ayosu
+ * @author ayosu 
  */
 @Entity
 @Table(name = "User")

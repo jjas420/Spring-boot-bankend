@@ -14,5 +14,6 @@ import lombok.Data;
 public class AuthResponseDto {
   
       String token;
+       String refreshToken;
    
 }
